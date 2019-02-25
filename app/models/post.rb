@@ -14,7 +14,7 @@ end
 class MyValidator < ActiveModel::Validator
   def validate(post)
       unless post.title.include? == ('Believe' || 'Secret' || 'Top [number]' || 'Guess')
-        post.errors[:title] << 'false'
+        post.errors[:title] << 'must include clickbait'
       end
     end
 end
