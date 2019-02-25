@@ -14,7 +14,7 @@ end
 class MyValidator < ActiveModel::Validator
   def validate(post)
       unless post.contain? == ('Believe' || 'Secret' || 'Top [number]' || 'Guess')
-        post.errors[:name] << 'Need a name starting with X please!'
+        post.errors[:name] << 'false'
       end
     end
 end
