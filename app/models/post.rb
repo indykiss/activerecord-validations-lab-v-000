@@ -3,15 +3,13 @@ class Post < ActiveRecord::Base
   validates :content, length: { minimum: 250 }
   validates :summary, length: { maximum: 250 }
   validates :category, inclusion: { in: %w(Fiction Non-Fiction)}
-  validates_with MyValidator
-
-end
+  validates_with validate_click
 
 
-class MyValidator < ActiveModel::Validator
-  def validate(post)
-      unless post.title.include? == ('Believe' || 'Secret' || 'Top [number]' || 'Guess')
-        post.errors[:title] << 'must include clickbait'
+  def validate_click(post)
+    if !title.nil? && !title.include?("Won't Believe") && !title.include?("Secret") && !title.include?("Guess") && !title.include?("Top")
+         errors.add(:title, "The title isn't clickbaity")
       end
     end
+
 end
