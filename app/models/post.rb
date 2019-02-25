@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
 
   def validate_click
-    if  
+    if !title.nil? &&
       !title.include?("Won't Believe") &&
       !title.include?("Secret") &&
       !title.include?("Guess") &&
