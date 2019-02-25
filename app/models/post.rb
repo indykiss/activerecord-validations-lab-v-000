@@ -13,8 +13,8 @@ end
 
 class MyValidator < ActiveModel::Validator
   def validate(post)
-      unless post.include? == ('Believe' || 'Secret' || 'Top [number]' || 'Guess')
-        post.errors[:name] << 'false'
+      unless post.title.include? == ('Believe' || 'Secret' || 'Top [number]' || 'Guess')
+        post.errors[:title] << 'false'
       end
     end
 end
