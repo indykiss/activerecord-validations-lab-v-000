@@ -3,10 +3,10 @@ class Post < ActiveRecord::Base
   validates :content, length: { minimum: 250 }
   validates :summary, length: { maximum: 250 }
   validates :category, inclusion: { in: %w(Fiction Non-Fiction)}
-  validates_with validate_click
+  validate :validate_click
 
 
-  def validate_click(post)
+  def validate_click
     if !title.nil? && !title.include?("Won't Believe") && !title.include?("Secret") && !title.include?("Guess") && !title.include?("Top")
          errors.add(:title, "The title isn't clickbaity")
       end
