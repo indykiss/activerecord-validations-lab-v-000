@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
       !title.include?("Secret") &&
       !title.include?("Guess") &&
       !title.include?("Top")
-         errors.add(:title, "The title isn't clickbaity")
+         errors.add(:title, "not clickbait-y")
       end
     end
 
