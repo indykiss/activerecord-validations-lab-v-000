@@ -7,7 +7,11 @@ class Post < ActiveRecord::Base
 
 
   def validate_click
-    if !title.nil? && !title.include?("Won't Believe") && !title.include?("Secret") && !title.include?("Guess") && !title.include?("Top")
+    if  
+      !title.include?("Won't Believe") &&
+      !title.include?("Secret") &&
+      !title.include?("Guess") &&
+      !title.include?("Top")
          errors.add(:title, "The title isn't clickbaity")
       end
     end
